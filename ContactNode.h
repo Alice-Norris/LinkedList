@@ -6,12 +6,13 @@
 #include <iostream>
 #include <string>
 
+// ContactNodes contain two basic pieces of information and an address
+// to the next node, if any.
 class ContactNode {
  private:
   std::string name;
   std::string phone_num;
   ContactNode* next;
-
  public:
   ContactNode(std::string name, std::string phone_num, ContactNode* next = NULL);
   ContactNode* GetNext();
