@@ -1,33 +1,34 @@
+// Copyright 2023 Alice Norris. Subject to MIT License.
 #include "ContactNode.h"
 
-using namespace::std;
-
 int main() {
-	string contactName;
-	string contactPhoneNum;
-	ContactNode* HeadNode = new ContactNode("Head Object", "0");
-	ContactNode* currNode = HeadNode;
-	for (int i = 0; i < 3; i++) {
-		cout << "Person " << i + 1 << endl;
-		cout << "Enter name:" << endl;
-		getline(cin, contactName);
-		cout << "Enter phone number:" << endl;
-		getline(cin, contactPhoneNum);
-		cout << "You entered: " << contactName << ", " << contactPhoneNum << endl << endl;
-		ContactNode* newContact = new ContactNode(contactName, contactPhoneNum);
-		currNode->InsertAfter(newContact);
-		currNode = newContact;
-	}
+  std::string name;
+  std::string phone_num;
+  ContactNode* head_node = new ContactNode("Head Object", "0");
+  ContactNode* curr_node = head_node;
+  // Get three contacts of information from user, turning each into a contact
+  // node, and linking them.
+  for (int i = 0; i < 3; i++) {
+    std::cout << "Person " << i + 1 << std::endl;
+    std::cout << "Enter name:" << std::endl;
+    getline(std::cin, name);
+    std::cout << "Enter phone number:" << std::endl;
+    getline(std::cin, phone_num);
+    std::cout << "You entered: " << name << ", " << phone_num << std::endl;
+    ContactNode* newContact = new ContactNode(name, phone_num);
+    curr_node->InsertAfter(newContact);
+    curr_node = newContact;
+  }
 
-	currNode = HeadNode;
-	cout << "CONTACT LIST" << endl;
-	while (currNode != nullptr) {
+  curr_node = head_node;
 
-		currNode = currNode->GetNext();
-		if (currNode != nullptr) {
-			currNode->PrintContactNode();
-		}
-		
-	}
-	return 0;
+  // Printing contact list.
+  std::cout << "CONTACT LIST" << std::endl;
+  while (curr_node != nullptr) {
+    curr_node = curr_node->GetNext();
+    if (curr_node != nullptr) {
+      curr_node->PrintContactNode();
+    }
+  }
+  return 0;
 }

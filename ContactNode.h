@@ -1,23 +1,24 @@
+// Copyright 2023 Alice Norris. Subject to MIT License.
+
 #pragma once
 #ifndef CONTACTNODE_H
 #define CONTACTNODE_H
 #include <iostream>
 #include <string>
 
-using namespace std;
+class ContactNode {
+ private:
+  std::string name;
+  std::string phone_num;
+  ContactNode* next;
 
-class ContactNode {	
-private:
-	string contactName;
-	string contactPhoneNum;
-	ContactNode* nextPointer;
-public: 
-	ContactNode(string ContactName, string ContactPhoneNum, ContactNode* nextPointer = NULL );
-	ContactNode* GetNext();
-	void InsertAfter(ContactNode* thisNode);
-	string GetName() { return contactName; };
-	string GetPhoneNumber() { return contactPhoneNum; };
-	void PrintContactNode();
+ public:
+  ContactNode(std::string name, std::string phone_num, ContactNode* next = NULL);
+  ContactNode* GetNext();
+  void InsertAfter(ContactNode* node);
+  std::string GetName() { return name; }
+  std::string GetPhoneNumber() { return phone_num; }
+  void PrintContactNode();
 };
 
 #endif
