@@ -16,8 +16,8 @@ class ContactNode {
  public:
   ContactNode(std::string name, std::string phone_num, ContactNode* next = NULL);
   // Get address of next contact node in list
-	ContactNode* GetNext();
-	// Insert a node after the node passed as an argument.
+  ContactNode* GetNext();
+  // Insert a node after the node passed as an argument.
   void InsertAfter(ContactNode* node);
   std::string GetName() { return name; }
   std::string GetPhoneNumber() { return phone_num; }
