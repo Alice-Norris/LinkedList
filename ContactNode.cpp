@@ -10,12 +10,12 @@ ContactNode::ContactNode(std::string name, std::string phone_num,
   this->next = next;
 }
 
-// Inserts node after the supplied node, and adds the next node's address.
-void ContactNode::InsertAfter(ContactNode* node) {
-  ContactNode* tempNext = NULL;  // Pointer to temporarily hold address.
-  tempNext = this->next;  // Store address of the existing node's next pointer.
-  this->next = node;  // Change this node's next pointer to address of new node.
-  node->next = tempNext;  // Give address of original next pointer to new node.
+// Inserts node after the supplied node, adding the next node's address.
+void ContactNode::InsertAfter(ContactNode* node_ptr) {
+  ContactNode* new_next = NULL;  // Pointer to temporarily hold address.
+  new_next = this->next;  // Store address of the existing node's next pointer.
+  this->next = node_ptr;  // Change this node's next to address of new node.
+  node_ptr->next = new_next;  // Give original next node address to new node.
 }
 
 ContactNode* ContactNode::GetNext() {
